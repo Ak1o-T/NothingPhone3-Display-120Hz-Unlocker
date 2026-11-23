@@ -1,0 +1,6 @@
+id=nt_display_refresh
+name=Nothing Display 120Hz & LTPO Unlocker
+version=v1.0
+versionCode=100
+author=Antigravity
+description=Принудительные 120 Гц для Twitch, браузеров, соцсетей и будущих приложений. Полное сохранение динамического LTPO (1-10 Гц в простое). Не конфликтует с Nothing Optimizer.

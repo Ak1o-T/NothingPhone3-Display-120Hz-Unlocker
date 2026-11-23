@@ -1,0 +1,4 @@
+analysis/
+*.bak
+*.tmp
+.DS_Store
