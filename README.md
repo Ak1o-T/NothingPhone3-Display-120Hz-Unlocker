@@ -39,7 +39,7 @@ This module lifts all artificial limits, allowing the entire system UI and all a
    * This module injects an SQLite trigger (`nt_lock_refresh_rate`) into the configuration database to prevent cloud updates from reverting your 120 Hz settings.
 5. **Systemless & Non-Destructive:**
    * Does not modify `/system` or `/vendor` partitions physically (uses memory bind-mounts).
-   * Fully compatible alongside performance, thermal, and blur modules (*Nothing Thermal & Gaming Optimizer*, *NothingBlurIcons*, *NothingBlurShortcuts*).
+   * Fully compatible alongside blur modules (*NothingBlurIcons*, *NothingBlurShortcuts*).
 6. **120Hz Smooth UI & Blur Pipeline Optimization (New in v1.1):**
    * **SurfaceFlinger Phase Tuning:** Tightens 120 Hz `early`/`earlyGl`/`late` phase durations (`10.0 ms` app / `7.5 ms` SF) and enables client composition caching (`debug.sf.disable_client_composition_cache=0`) to cut touch-to-display latency.
    * **HWUI / Skia Vulkan Caches:** Expands `layer_cache_size` (64 MB), `texture_cache_size` (96 MB), `path_cache_size` (48 MB), and `drop_shadow_cache_size` (8 MB) for stutter-free real-time blur.
@@ -84,7 +84,7 @@ This module lifts all artificial limits, allowing the entire system UI and all a
    * В Nothing OS встроен облачный демон `com.nothing.proxy`, регулярно перезаписывающий локальные настройки герцовки своими файлами.
    * Модуль содержит SQLite-триггер `nt_lock_refresh_rate`, блокирующий любые попытки перезаписи конфигурации частоты обновления.
 5. **Полная совместимость:**
-   * Не конфликтует с модулями оптимизации производительности и блюра (*Nothing Thermal & Gaming Optimizer*, *NothingBlurIcons*, *NothingBlurShortcuts*).
+   * Полностью совместимо с модулями блюра (*NothingBlurIcons*, *NothingBlurShortcuts*).
 6. **Оптимизация плавности 120 Гц и живого блюра (Новое в v1.1):**
    * **Тюнинг фаз `SurfaceFlinger`:** Сжаты фазы под 120 Гц (`10.0 мс` app / `7.5 мс` SF) и включён кэш клиентской композиции (`debug.sf.disable_client_composition_cache=0`) для снижения задержки отклика.
    * **Увеличенные кэши `HWUI` / Skia Vulkan:** Расширены кэши слоёв (`64`), текстур (`96`), путей (`48`) и теней (`8`) для плавного рендеринга живого блюра без выгрузок из видеопамяти.
