@@ -49,6 +49,23 @@ echo 5  > /dev/cpuctl/foreground/cpu.uclamp.min 2>/dev/null
 # Ensure client composition cache stays enabled
 setprop debug.sf.disable_client_composition_cache 0 2>/dev/null
 
+# --- Memory, ZRAM & UFS I/O Tuning ---
+echo 60 > /proc/sys/vm/swappiness 2>/dev/null
+for q in /sys/block/sd*/queue/read_ahead_kb; do
+    [ -f "$q" ] && echo 256 > "$q" 2>/dev/null
+done
+if [ -f /sys/block/zram0/comp_algorithm ] && ! grep -q '\[lz4\]' /sys/block/zram0/comp_algorithm 2>/dev/null; then
+    zram_size=$(cat /sys/block/zram0/disksize 2>/dev/null)
+    [ -z "$zram_size" ] && zram_size=9663676416
+    if swapoff /dev/block/zram0 2>/dev/null; then
+        echo 1 > /sys/block/zram0/reset 2>/dev/null
+        echo lz4 > /sys/block/zram0/comp_algorithm 2>/dev/null
+        echo "$zram_size" > /sys/block/zram0/disksize 2>/dev/null
+        mkswap /dev/block/zram0 >/dev/null 2>&1
+        swapon /dev/block/zram0 2>/dev/null
+    fi
+fi
+
 # Keep snappy 0.85 animation scales (never 0, so NothingBlurIcons/Shortcuts ValueAnimators stay smooth)
 settings put global window_animation_scale 0.85 2>/dev/null
 settings put global transition_animation_scale 0.85 2>/dev/null

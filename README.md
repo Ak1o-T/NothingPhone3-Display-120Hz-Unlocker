@@ -1,4 +1,4 @@
-# Nothing Phone (3) — 120Hz & LTPO Unlocker (KernelSU / Magisk / APatch)
+# Nothing Phone (3) — 120Hz, Smooth UI & LTPO Optimizer (KernelSU / Magisk / APatch)
 
 > [!WARNING]
 > **COMPATIBILITY WARNING / ВАЖНОЕ ПРЕДУПРЕЖДЕНИЕ О СОВМЕСТИМОСТИ**
@@ -45,11 +45,15 @@ This module lifts all artificial limits, allowing the entire system UI and all a
    * **HWUI / Skia Vulkan Caches:** Expands `layer_cache_size` (64 MB), `texture_cache_size` (96 MB), `path_cache_size` (48 MB), and `drop_shadow_cache_size` (8 MB) for stutter-free real-time blur.
    * **Scheduler Headroom & Snappy Animations:** Sets `cpu.uclamp.min` (`top-app=15%`, `foreground_window=10%`) and `0.85x` animation scales (preserving `ValueAnimator` physics).
    * **Auto-AOT `speed` Maintenance:** Automatically ensures `speed` compilation for `com.nothing.launcher`, `com.android.systemui`, `com.nothing.bluricons`, and `com.nothing.blurshortcuts` after OTA or app updates.
+7. **Memory, ZRAM & UFS I/O Tuning (New in v1.2):**
+   * **ZRAM `lz4` Compression:** Switches ZRAM from `lzo-rle` to faster `lz4` to reduce CPU overhead and micro-stutters when minimizing heavy games or switching apps.
+   * **Balanced Swapping (`vm.swappiness=60`):** Keeps apps, Launcher, and SystemUI caches in fast RAM longer instead of aggressively swapping at `100`.
+   * **UFS Storage (`read_ahead_kb=256`):** Tuned for faster random read access and snappier app launches.
 
 ---
 
 ### Installation:
-1. Download `NothingDisplayOptimizer-v1.1.zip` from the [Releases](https://github.com/Ak1o-T/NothingPhone3-Display-120Hz-Unlocker/releases) section.
+1. Download `NothingDisplayOptimizer-v1.2.zip` from the [Releases](https://github.com/Ak1o-T/NothingPhone3-120Hz-SmoothUI/releases) section.
 2. Open **KernelSU**, **APatch**, or **Magisk**.
 3. Navigate to **Modules** -> **Install from storage** and select the `.zip`.
 4. Reboot your device.
@@ -90,11 +94,15 @@ This module lifts all artificial limits, allowing the entire system UI and all a
    * **Увеличенные кэши `HWUI` / Skia Vulkan:** Расширены кэши слоёв (`64`), текстур (`96`), путей (`48`) и теней (`8`) для плавного рендеринга живого блюра без выгрузок из видеопамяти.
    * **Запас планировщика и отзывчивость:** Выставлены `cpu.uclamp.min` (`top-app=15%`, `foreground_window=10%`) и масштаб анимаций `0.85` (без отключения `ValueAnimator`).
    * **Авто-поддержка AOT `speed`:** Автоматически проверяет и поддерживает полную компиляцию `speed` для `com.nothing.launcher`, `com.android.systemui`, `com.nothing.bluricons` и `com.nothing.blurshortcuts` после обновлений.
+7. **Оптимизация памяти, ZRAM и UFS I/O (Новое в v1.2):**
+   * **ZRAM `lz4`:** Переключает сжатие ZRAM с `lzo-rle` на более быстрый `lz4` — меньше нагрузки на CPU и микрофризов при сворачивании тяжёлых игр и переключении приложений.
+   * **Умеренный своппинг (`vm.swappiness=60`):** Дольше удерживает приложения и кэш лаунчера/SystemUI в быстрой ОЗУ вместо агрессивного сброса в ZRAM (`100`).
+   * **Накопитель UFS (`read_ahead_kb=256`):** Снижено лишнее упреждающее чтение для более быстрого случайного доступа и запуска приложений.
 
 ---
 
 ### Установка:
-1. Скачайте архив `NothingDisplayOptimizer-v1.1.zip` из раздела [Releases](https://github.com/Ak1o-T/NothingPhone3-Display-120Hz-Unlocker/releases).
+1. Скачайте архив `NothingDisplayOptimizer-v1.2.zip` из раздела [Releases](https://github.com/Ak1o-T/NothingPhone3-120Hz-SmoothUI/releases).
 2. Откройте **KernelSU**, **APatch** или **Magisk**.
 3. Перейдите во вкладку **Модули** -> **Установить из хранилища** и выберите скачанный `.zip`.
 4. Перезагрузите устройство.
