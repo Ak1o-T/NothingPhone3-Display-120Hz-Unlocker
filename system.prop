@@ -1,0 +1,16 @@
+# Enable SurfaceFlinger client composition cache (reduces GPU re-compositing with live blur)
+debug.sf.disable_client_composition_cache=0
+
+# SurfaceFlinger 120Hz phase durations (cuts ~24ms pipeline latency while keeping 8.33ms budget safe)
+debug.sf.early.app.duration=10000000
+debug.sf.early.sf.duration=7500000
+debug.sf.earlyGl.app.duration=10000000
+debug.sf.earlyGl.sf.duration=7500000
+debug.sf.late.app.duration=10000000
+debug.sf.late.sf.duration=7500000
+
+# HWUI / Skia Vulkan caches tuned for live FrostedBackdropDrawable blur
+ro.hwui.layer_cache_size=64
+ro.hwui.texture_cache_size=96
+ro.hwui.path_cache_size=48
+ro.hwui.drop_shadow_cache_size=8

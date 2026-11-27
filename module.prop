@@ -1,6 +1,6 @@
 id=nt_display_refresh
-name=Nothing Display 120Hz & LTPO Unlocker
-version=v1.0
-versionCode=100
+name=Nothing Display 120Hz & Smooth UI
+version=v1.1
+versionCode=110
 author=Antigravity
-description=Принудительные 120 Гц для Twitch, браузеров, соцсетей и будущих приложений. Полное сохранение динамического LTPO (1-10 Гц в простое). Не конфликтует с Nothing Optimizer.
+description=Принудительные 120 Гц с сохранением LTPO (1-10 Гц в простое) + плавные анимации UI (фазы SurfaceFlinger, кэши HWUI/Skia, uclamp, авто-поддержка AOT speed). Совместимо с NothingBlurShortcuts, NothingBlurIcons и Nothing Optimizer.
